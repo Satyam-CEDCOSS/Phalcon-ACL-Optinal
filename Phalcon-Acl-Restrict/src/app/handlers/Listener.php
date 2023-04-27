@@ -78,15 +78,15 @@ class Listener extends Injectable
         }
 
         $check = $acl->isAllowed($di->get('session')->get('type'), $dis->getControllerName(), $dis->getActionName());
-        echo $check;
-        $controle = $dis->getControllerName();
-        echo $controle;
-        $action = $dis->getActionName();
-        echo $action;
-        $type = $di->get('session')->get('type');
-        echo $type;
         if (!$check) {
             echo "Access Denied";
+            $value = $di->get('session')->get('count');
+            $di->get('session')->set('count', $value - 1);
+            die;
+        }
+        if ($di->get('session')->get('type') == 'user' && $di->get('session')->get('count') < 1) {
+            $acl->deny('user', 'user', '*');
+            echo "You Have Been Blocked";
             die;
         }
     }

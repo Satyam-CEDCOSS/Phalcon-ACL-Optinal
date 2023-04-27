@@ -10,6 +10,7 @@ use Phalcon\Config;
 use Phalcon\Session\Manager;
 use Phalcon\Session\Adapter\Stream;
 
+
 $config = new Config([]);
 
 // Define some absolute path constants to aid in locating resources
@@ -28,7 +29,7 @@ $loader->registerDirs(
 
 $loader->registerNamespaces(
     [
-        'MyApp\Listener'=>APP_PATH .'/handlers/'
+        'MyApp\Listener' => APP_PATH . '/handlers/'
     ]
 );
 
@@ -63,10 +64,10 @@ $container->set(
                 'username' => 'root',
                 'password' => 'secret',
                 'dbname'   => 'mydb',
-                ]
-            );
-        }
-    );
+            ]
+        );
+    }
+);
 
 $container->set(
     'mongo',
@@ -92,6 +93,7 @@ $container->set(
         return $session;
     }
 );
+
 use MyApp\Listener\Listener;
 
 $eventsManager = $container->get('eventsManager');
