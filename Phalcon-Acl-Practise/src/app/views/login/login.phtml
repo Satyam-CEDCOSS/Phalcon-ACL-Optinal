@@ -1,0 +1,14 @@
+<?php
+use Phalcon\Http\Response;
+
+if ($this->view->message == 'success') {
+    echo "<h1 class='bg-success'>Login Successful</h1>";
+    echo "<h1>" . $name . "</h1>";
+    echo $this->tag->linkTo(["login", "Logout", 'class' => 'btn btn-primary']);
+} else {
+    $response = new Response();
+    $response->setStatusCode(403, 'authentication failed');
+    $response->setContent("Please enter a valid Email and Password");
+    $response->send();
+    echo "<br>" . $this->tag->linkTo(["login", "Go Back", 'class' => 'btn btn-primary']);
+}

@@ -1,0 +1,54 @@
+<?php
+
+$btn = 'btn btn-primary';
+echo "<h1>Hello World</h1>";
+
+echo PHP_EOL;
+
+echo $this->tag->linkTo(
+    [
+        'signup',
+        'Sign Up Here!',
+        'class' => $btn
+    ]
+);
+
+echo PHP_EOL;
+
+echo $this->tag->linkTo(
+    [
+        'login',
+        'Login Here!',
+        'class' => $btn
+    ]
+);
+
+echo PHP_EOL;
+
+echo $this->tag->linkTo(
+    [
+        'user',
+        'User Here!',
+        'class' => $btn
+    ]
+);
+
+echo PHP_EOL;
+
+echo $this->tag->linkTo(
+    [
+        'account',
+        'Accountant Here!',
+        'class' => $btn
+    ]
+);
+
+echo PHP_EOL;
+
+echo $this->tag->linkTo(
+    [
+        'admin',
+        'Admin Here!',
+        'class' => $btn
+    ]
+);
